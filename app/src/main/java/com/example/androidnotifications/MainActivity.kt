@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         //check to make sure build version is sufficient for importance
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val name = "Notification Channel"
-                val importance = NotificationManager.IMPORTANCE_HIGH
+                //to  the bottom of the list with imporance_min as well, neat
+                val importance = NotificationManager.IMPORTANCE_MIN
                 val description = "testing notifcations"
 
                 val channel = NotificationChannel(channelId, name, importance)
@@ -39,11 +40,13 @@ class MainActivity : AppCompatActivity() {
             val notificationBuilder = NotificationCompat.Builder(this, channelId)
                 .setDefaults(DEFAULT_LIGHTS)
                 .setContentTitle("A string of title stuff")
-                .setContentText("bodystuff going here")
+                //lets try text super long
+                .setContentText(getString(R.string.toolong))
+                ///.setContentText("bodystuff going here")
                 .setPriority(NotificationManager.IMPORTANCE_MAX)
                     //TODO FIND OUT RIGHT WAY TO DO THIS
                 .setColor(getResources().getColor(R.color.colorMAX))
-                .setSmallIcon(R.drawable.ic_local_hotel_black_24dp)
+                .setSmallIcon(R.drawable.ic_stat_name)
             notificationManager.notify(NOTIFICATION_ID_INSTANT, notificationBuilder.build())
 
 

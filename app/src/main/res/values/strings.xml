@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidNotifications</string>
+    <string name="toolong">bodystuff going herebodystuff going herebodystuff going herebodystuff going herebodystuff
+        going herebodystuff going herebodystuff going herebodystuff going herebodystuff going herebodystuff going
+        herebodystuff going herebodystuff going herebodystuff going herebodystuff going herebodystuff going
+        herebodystuff going herebodystuff going herebodystuff going herebodystuff going herebodystuff going
+        herebodystuff going here
+    </string>
 </resources>
