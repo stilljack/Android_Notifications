@@ -1,5 +1,6 @@
 package com.example.androidnotifications
 
+import android.app.Notification.DEFAULT_LIGHTS
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -36,12 +37,13 @@ class MainActivity : AppCompatActivity() {
                 // ok all seems pretty nonneogtiable (boilerplate)
             }
             val notificationBuilder = NotificationCompat.Builder(this, channelId)
-                .setDefaults()
-                .setContentTitle()
-                .setContentText()
-                .setPriority()
-                .setColor()
-                .setSmallIcon()
+                .setDefaults(DEFAULT_LIGHTS)
+                .setContentTitle("A string of title stuff")
+                .setContentText("bodystuff going here")
+                .setPriority(NotificationManager.IMPORTANCE_MAX)
+                    //TODO FIND OUT RIGHT WAY TO DO THIS
+                .setColor(getResources().getColor(R.color.colorMAX))
+                .setSmallIcon(R.drawable.ic_local_hotel_black_24dp)
             notificationManager.notify(NOTIFICATION_ID_INSTANT, notificationBuilder.build())
 
 
