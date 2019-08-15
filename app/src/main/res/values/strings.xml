@@ -6,4 +6,8 @@
         herebodystuff going herebodystuff going herebodystuff going herebodystuff going herebodystuff going
         herebodystuff going here
     </string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
