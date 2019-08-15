@@ -3,6 +3,7 @@ package com.example.androidnotifications
 import android.app.Notification.DEFAULT_LIGHTS
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -21,13 +22,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //get the notification manager, lets try without as notificationmanager
         // nope definitely need to cast it
+
         val channelId = "$packageName.channel"
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         btn_notification.setOnClickListener {
-            intent = Intent(this, FullscreenActivity::class.java )
-            intent.putExtra("nPass", "notibutton pressed")
-            startActivity(intent)
+            val contentIntent = Intent(this, FullscreenActivity::class.java )
+            contentIntent.putExtra("nPass", "notibutton pressed")
+            val pendingContentIntent = PendingIntent.getActivity(this, 0, contentIntent,PendingIntent.FLAG_ONE_SHOT)
+
         //check to make sure build version is sufficient for importance
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val name = "Notification Channel"
@@ -50,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                     //TODO FIND OUT RIGHT WAY TO DO THIS
                 .setColor(getResources().getColor(R.color.colorMAX))
                 .setSmallIcon(R.drawable.ic_stat_name)
+                .setAutoCancel(true)
+                .setContentIntent(pendingContentIntent)
             notificationManager.notify(NOTIFICATION_ID_INSTANT, notificationBuilder.build())
 
         }
